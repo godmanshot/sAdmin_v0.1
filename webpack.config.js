@@ -3,8 +3,7 @@ const path = require('path');
 module.exports = {
   watch: true,
   entry: {
-    scripts: './resources/assets/js/scripts.js',
-    react: './resources/assets/js/react.js'
+    main: './resources/assets/js/main.js'
   },
   output: {
     filename: '[name].js',
