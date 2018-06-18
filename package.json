@@ -1,0 +1,46 @@
+{
+  "name": "sAdmin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "sass-production": "npx sass resources/assets/sass/index.sass public/css/index.css --style=compressed",
+    "sass": "./node_modules/.bin/node-sass --watch ./resources/assets/sass/index.sass --output ./public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godmanshot/sAdmin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/godmanshot/sAdmin/issues"
+  },
+  "homepage": "https://github.com/godmanshot/sAdmin#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.0",
+    "popper.js": "^1.14.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "sass": "^1.5.1",
+    "slick-carousel": "^1.8.1"
+  }
+}
