@@ -1,5 +1,5 @@
-export default class App {
-	constructor() {
-		this.time = (new Date()).getMinutes();
-	}
+import Model from './Model';
+
+export default class App extends Model {
+
 }

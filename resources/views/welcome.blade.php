@@ -9,9 +9,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/index.css') }}?q={{rand()}}" rel="stylesheet" type="text/css">
 
     </head>
     <body>
+
+
         <div id="root"></div>
 
         <script type="text/javascript" src="{{ asset('js/main.js') }}?q={{rand()}}"></script>

@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('app', 'AppController');
+Route::resource('action', 'ActionController');
+Route::resource('notification', 'NotificationController');
