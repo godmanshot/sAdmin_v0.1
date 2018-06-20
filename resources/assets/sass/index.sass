@@ -8,7 +8,8 @@
 		&:after
 			background-color: #eaeaea
 			content: " "
-			display: block
+			display: inline-block
+			margin-right: 10px
 			width: 100px
 			height: 20px
 			border-radius: 3px
@@ -18,8 +19,42 @@
 		&:after
 			background-color: #eaeaea
 			content: " "
-			display: block
+			display: inline-block
+			margin-right: 10px
 			width: 200px
+			height: 20px
+			border-radius: 3px
+
+%content_preload_long
+	&:empty
+		&:after
+			background-color: #eaeaea
+			content: " "
+			display: inline-block
+			margin-right: 10px
+			width: 600px
+			height: 20px
+			border-radius: 3px
+
+%content_preload_full_width
+	&:empty
+		&:after
+			background-color: #eaeaea
+			content: " "
+			display: inline-block
+			margin-right: 10px
+			width: 100%
+			height: 20px
+			border-radius: 3px
+
+=preload($width)
+	&:empty
+		&:after
+			background-color: #eaeaea
+			content: " "
+			display: inline-block
+			margin-right: 10px
+			width: $width
 			height: 20px
 			border-radius: 3px
 
@@ -43,42 +78,59 @@ body
 		padding: 0
 
 		li
-			@extend %content_preload
+			+preload(200px)
 
 			padding: 15px 0
 			padding-left: 15px
 			border-bottom: solid 1px #f0f0f0
 			list-style: none
+			// cursor: pointer
 
 .head_menu
 	padding: 15px 0
 
 	.right-side
+		position: relative
 
 		span
-			position: relative
 			padding: 0 15px
 
-.notifications
-	border: solid 1px #f0f0f0
-	z-index: 999
-	padding: 0
-	margin: 0
-	display: inline-block
-	position: absolute
-	top: 50px
-	padding: 0 15px
-	left: 0
-	width: 100%
-	opacity: 0
-	visibility: hidden
-	transition: 300ms
+		.notifications
+			background-color: #fff
+			border: solid 1px #f0f0f0
+			z-index: 999
+			padding: 0
+			margin: 0
+			display: inline-block
+			position: absolute
+			top: 50px
+			padding: 0 15px
+			left: -150px
+			width: 300px
+			opacity: 0
+			visibility: hidden
+			transition: 300ms
 
-	&.active
-		visibility: visible
-		opacity: 1
+			&.active
+				visibility: visible
+				opacity: 1
 
-	li
-		padding: 15px 0
-		border-bottom: solid 1px #f0f0f0
-		list-style: none
+			li
+				padding: 15px 0
+				border-bottom: solid 1px #f0f0f0
+				list-style: none
+
+.content
+	margin-top: 20px
+	border: 1px solid #f0f0f0
+	padding: 20px 15px
+
+	.body
+		padding: 20px 0
+
+		.list
+			table
+				width: 100%
+				
+				tbody>tr>td
+					+preload(100%)

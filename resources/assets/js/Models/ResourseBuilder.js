@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class ResourseBuilder {
 
-	constructor(url) {
+	constructor(url, model_class) {
 		this.url = url;
 	}
 
@@ -12,7 +12,7 @@ export default class ResourseBuilder {
 		  	access ? access(response.data) : console.log(response.data);
 		  })
 		  .catch(function (errors) {
-		  	access ? error(errors) : console.log(error);
+		  	error ? error(errors) : console.log(error);
 		  });
 
 	}

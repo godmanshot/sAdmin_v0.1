@@ -6,12 +6,16 @@ export default class HeadMenu extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {notifications: []};
+
+		this.notifyRef = React.createRef();
 	}
 
 	componentDidMount() {
+		this.notifications();
+		
 		this.timerID = setInterval(
 			() => this.notifications(),
-			1000
+			5000
 		);
 	}
 
@@ -24,11 +28,11 @@ export default class HeadMenu extends React.Component {
 			<div className="head_menu d-flex">
 				<div className="hello">Добро пожаловать!</div>
 				<div className="right-side ml-auto">
-					<span onClick={()=>alert('sdf')}>
+					<ul className="notifications" ref={this.notifyRef}>
+						{this.state.notifications.map((not) => <li>{not.text}</li>)}
+					</ul>
+					<span onClick={() => this.notifyRef.current.classList.toggle("active")}>
 						Уведомления: {this.state.notifications.length}
-						<ul className="notifications">
-							{this.state.notifications.map((not) => <li>{not.text}</li>)}
-						</ul>
 					</span>
 					<span>Выйти</span>
 				</div>

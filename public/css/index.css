@@ -6284,14 +6284,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.left-menu ul li:empty:after {
-  background-color: #eaeaea;
-  content: " ";
-  display: block;
-  width: 200px;
-  height: 20px;
-  border-radius: 3px; }
-
 html {
   font-size: 14px;
   font-family: 'Roboto', sans-serif; }
@@ -6314,31 +6306,57 @@ body {
       padding-left: 15px;
       border-bottom: solid 1px #f0f0f0;
       list-style: none; }
+      .left-menu ul li:empty:after {
+        background-color: #eaeaea;
+        content: " ";
+        display: inline-block;
+        margin-right: 10px;
+        width: 200px;
+        height: 20px;
+        border-radius: 3px; }
 
 .head_menu {
   padding: 15px 0; }
-  .head_menu .right-side span {
-    position: relative;
-    padding: 0 15px; }
+  .head_menu .right-side {
+    position: relative; }
+    .head_menu .right-side span {
+      padding: 0 15px; }
+    .head_menu .right-side .notifications {
+      background-color: #fff;
+      border: solid 1px #f0f0f0;
+      z-index: 999;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      position: absolute;
+      top: 50px;
+      padding: 0 15px;
+      left: -150px;
+      width: 300px;
+      opacity: 0;
+      visibility: hidden;
+      transition: 300ms; }
+      .head_menu .right-side .notifications.active {
+        visibility: visible;
+        opacity: 1; }
+      .head_menu .right-side .notifications li {
+        padding: 15px 0;
+        border-bottom: solid 1px #f0f0f0;
+        list-style: none; }
 
-.notifications {
-  border: solid 1px #f0f0f0;
-  z-index: 999;
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  position: absolute;
-  top: 50px;
-  padding: 0 15px;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: 300ms; }
-  .notifications.active {
-    visibility: visible;
-    opacity: 1; }
-  .notifications li {
-    padding: 15px 0;
-    border-bottom: solid 1px #f0f0f0;
-    list-style: none; }
+.content {
+  margin-top: 20px;
+  border: 1px solid #f0f0f0;
+  padding: 20px 15px; }
+  .content .body {
+    padding: 20px 0; }
+    .content .body .list table {
+      width: 100%; }
+      .content .body .list table tbody > tr > td:empty:after {
+        background-color: #eaeaea;
+        content: " ";
+        display: inline-block;
+        margin-right: 10px;
+        width: 100%;
+        height: 20px;
+        border-radius: 3px; }

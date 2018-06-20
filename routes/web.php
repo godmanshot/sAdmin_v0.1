@@ -14,7 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('resourse')->group(function() {
+	Route::resource('app', 'AppController');
+	Route::resource('action', 'ActionController');
+	Route::resource('notification', 'NotificationController');
+	Route::resource('news', 'NewsController');
+});
 
-Route::resource('app', 'AppController');
-Route::resource('action', 'ActionController');
-Route::resource('notification', 'NotificationController');
+Route::get('/{any}', function ($any) {
+
+    return view('welcome');
+
+})->where('any', '.*');
