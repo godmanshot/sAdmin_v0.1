@@ -21,6 +21,7 @@ export default class PostContent extends React.Component {
 	}
 
 	UNSAFE_componentWillReceiveProps(nextProps) {
+		console.log(nextProps.match.params.page);
 		this.className.getBuilder().paginate(nextProps.match.params.page, (data) => this.setState({
 			models: data.data,
 			current_page: data.current_page
@@ -44,7 +45,10 @@ export default class PostContent extends React.Component {
 	}
 
 	getPagination() {
-		return <NavLink to={`${this.url}` + '/page/' + (this.state.current_page + 1)}>Следующая</NavLink>
+		return <div>
+			<NavLink to={`${this.constructor.baseRoute}` + '/' + (this.state.current_page - 1)}>Предыдущая</NavLink> 
+			<NavLink to={`${this.constructor.baseRoute}` + '/' + (this.state.current_page + 1)}>Следующая</NavLink>
+		</div>;
 	}
 
 }
