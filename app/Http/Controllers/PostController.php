@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
+use App\Post;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(1);
+        $posts = Post::paginate(10);
 
-        return $news;
+        return $posts;
     }
 
     /**
@@ -43,10 +43,10 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\News  $news
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show(Post $post)
     {
         //
     }
@@ -54,10 +54,10 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\News  $news
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(Post $post)
     {
         //
     }
@@ -66,10 +66,10 @@ class NewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\News  $news
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -77,11 +77,11 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\News  $news
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(Post $post)
     {
-        $news->delete();
+        $post->delete();
     }
 }

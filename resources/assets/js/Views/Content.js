@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import NewsContent from './Contents/NewsContent';
 import App from '../Models/App';
+import NewsContent from './Contents/NewsContent';
+import PostContent from './Contents/PostContent';
 
 export default class Content extends React.Component {
 
@@ -10,9 +11,9 @@ export default class Content extends React.Component {
 		return (
 			<div className="content">
 				<Switch>
-					<Route exact path={App.baseRoute+'/news'} component={NewsContent}/>
+					<Route path={App.baseRoute+'/news'} component={NewsContent}/>
 					<Route exact path={App.baseRoute+'/product'} component={() => <div>Как дела</div>}/>
-					<Route exact path={App.baseRoute+'/post'} component={() => <div>Что делаешь</div>}/>
+					<Route exact path={App.baseRoute+'/post'} component={PostContent}/>
 				</Switch>
 			</div>
 		);

@@ -14,11 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::prefix('resourse')->group(function() {
 	Route::resource('app', 'AppController');
 	Route::resource('action', 'ActionController');
 	Route::resource('notification', 'NotificationController');
 	Route::resource('news', 'NewsController');
+	Route::resource('post', 'PostController');
 });
 
 Route::get('/{any}', function ($any) {
