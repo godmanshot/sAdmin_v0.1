@@ -38,6 +38,7 @@ export default class PostContent extends Content {
 								)}
 							</tbody>
 						</table>
+						{this.getPagination()}
 					</div>
 				</div>
 			</div>

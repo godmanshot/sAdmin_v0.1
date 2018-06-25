@@ -14,9 +14,8 @@ export default class Content extends React.Component {
 			<div className="content">
 				<Switch>
 					<Route path={App.baseRoute+'/news/:page?'} component={NewsContent}/>
-					<Route exact path={App.baseRoute+'/news/page/:page'} component={NewsContent}/>
-					<Route exact path={App.baseRoute+'/product'} component={() => <div>Как дела</div>}/>
-					<Route exact path={App.baseRoute+'/post'} component={PostContent}/>
+					<Route path={App.baseRoute+'/product'} component={() => <div>Как дела</div>}/>
+					<Route path={App.baseRoute+'/post/:page?'} component={PostContent}/>
 				</Switch>
 			</div>
 		);

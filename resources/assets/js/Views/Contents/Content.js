@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import App from '../../Models/App';
+import Pagination from '../Pagination';
 
 export default class PostContent extends React.Component {
 
@@ -9,46 +8,41 @@ export default class PostContent extends React.Component {
 
 		this.state = {
 			models: Array(6).fill(''),
-			current_page: 1
+			current_page: 1,
+			last_page: ''
 		};
 
 		this.className = null;
-		this.url = this.props.match.url;
 	}
 
 	componentDidMount() {
 		this.init();
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		console.log(nextProps.match.params.page);
-		this.className.getBuilder().paginate(nextProps.match.params.page, (data) => this.setState({
-			models: data.data,
-			current_page: data.current_page
-		}));
+	componentDidUpdate(prevProps) {
+	  if (this.props.match.url !== prevProps.match.url) {
+			this.init();
+	  }
 	}
-
 
 	init() {
 		var page = this.props.match.params.page ? this.props.match.params.page : 1;
 
 		this.className.getBuilder().paginate(page, (data) => this.setState({
 			models: data.data,
-			current_page: data.current_page
+			current_page: data.current_page,
+			last_page: data.last_page
 		}));
 	}
 
 	delete(model) {
 		if(confirm()) {
-			this.className.getBuilder().delete(model.id, (data) => this.reupdate());
+			this.className.getBuilder().delete(model.id, (data) => this.init());
 		}
 	}
 
 	getPagination() {
-		return <div>
-			<NavLink to={`${this.constructor.baseRoute}` + '/' + (this.state.current_page - 1)}>Предыдущая</NavLink> 
-			<NavLink to={`${this.constructor.baseRoute}` + '/' + (this.state.current_page + 1)}>Следующая</NavLink>
-		</div>;
+		return <Pagination base_route={this.constructor.baseRoute} current_page={this.state.current_page} last_page={this.state.last_page} />;
 	}
 
 }

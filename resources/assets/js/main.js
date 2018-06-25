@@ -4,8 +4,10 @@ import resourses from './resourses';
 import LeftMenu from './Views/LeftMenu';
 import HeadMenu from './Views/HeadMenu';
 import Content from './Views/Content';
+import App from './Models/App';
 import { BrowserRouter } from 'react-router-dom';
 
+App.getBuilder().all();
 export default class Main extends React.Component {
 
 	render() {
